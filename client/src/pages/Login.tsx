@@ -62,6 +62,7 @@ export default function Login() {
               onClick={() => {
                 console.log("process env backend base url : " +process.env.BACKEND_BASE_URL);
                 console.log("process env port : " +process.env.PORT);
+                console.log("process env port : " +process.env.VITE_PORT);
                 useLogin(email, password, setAuthUser);
               }}
             >
