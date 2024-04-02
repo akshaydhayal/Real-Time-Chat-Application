@@ -3,9 +3,12 @@ import axios from "axios";
 export default async function useGetFriends(setFriends){
     try{
         console.log("use get frindfs hook called!!");
-        const response=await axios.get("http://localhost:3001/api/users/friends",{
-            withCredentials:true,
-        });
+        const response = await axios.get(
+          `${process.env.BACKEND_BASE_URL}/users/friends`,
+          {
+            withCredentials: true,
+          }
+        );
         console.log(response);
         const data=response.data;
         console.log("friendsss data: "+JSON.stringify(data));

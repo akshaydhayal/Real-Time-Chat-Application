@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 export default async function useRejectFriendRequest(friendUsername, setFriendRequests) {
   try {
     const response = await axios.post(
-      `http://localhost:3001/api/users/friends/reject/${friendUsername}`,
+      `${process.env.BACKEND_BASE_URL}/users/friends/reject/${friendUsername}`,
       {},
       {
         headers: { "Content-Type": "application/json" },

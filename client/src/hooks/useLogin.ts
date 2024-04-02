@@ -6,14 +6,14 @@ export default async function useLogin(username, password, setAuthUser) {
   try {
     console.log(username + " " + password);
     const response = await axios.post(
-      "http://localhost:3001/api/auth/login",
+      `${process.env.BACKEND_BASE_URL}/auth/login`,
       {
         username,
         password,
       },
       {
         headers: { "Content-Type": "application/json" },
-        withCredentials:true
+        withCredentials: true,
       }
     );
     console.log("data : " + JSON.stringify(response.data));

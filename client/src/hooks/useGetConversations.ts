@@ -4,9 +4,12 @@ import toast from "react-hot-toast";
 export default async function useGetConversations(recieverId){
     try{
         console.log(`recieverId : ${recieverId}`);
-        const response=await axios.get(`http://localhost:3001/api/messages/${recieverId}`,{
-            withCredentials:true
-        });
+        const response = await axios.get(
+          `${process.env.BACKEND_BASE_URL}/messages/${recieverId}`,
+          {
+            withCredentials: true,
+          }
+        );
         const data=response.data;
         console.log(data.messages);
         const conversations=data.messages;

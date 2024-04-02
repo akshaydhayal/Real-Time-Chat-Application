@@ -3,9 +3,12 @@ import toast from "react-hot-toast";
 
 export default async function useGetUser(username,setFriendSearched){
     try{
-        const response=await axios.get(`http://localhost:3001/api/users/${username}`,{
-            withCredentials:true
-        });
+        const response = await axios.get(
+          `${process.env.BACKEND_BASE_URL}/users/${username}`,
+          {
+            withCredentials: true,
+          }
+        );
         const data=response.data;
         if(data.user){
             console.log(data.user);

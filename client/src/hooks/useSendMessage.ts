@@ -3,13 +3,17 @@ import axios from "axios";
 export default async function useSendMessage(msg,rec,socket){
     try{
         console.log(`msg rec: ${msg} reciever : ${rec}`);
-        const response=await axios.post(`http://localhost:3001/api/messages/send`,{
-            message:msg,
-            reciever:rec
-        },{
-            headers:{'Content-Type':'application/json'},
-            withCredentials:true
-        });
+        const response = await axios.post(
+          `${process.env.BACKEND_BASE_URL}/messages/send`,
+          {
+            message: msg,
+            reciever: rec,
+          },
+          {
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          }
+        );
         const data=response.data;
         console.log('new Message : '+JSON.stringify(data.newMessage));
         // if(data.newMessage){
