@@ -5,7 +5,7 @@ export default async function useGetConversations(recieverId){
     try{
         console.log(`recieverId : ${recieverId}`);
         const response = await axios.get(
-          `${process.env.BACKEND_BASE_URL}/messages/${recieverId}`,
+          `${import.meta.env.VITE_BACKEND_BASE_URL}/messages/${recieverId}`,
           {
             withCredentials: true,
           }

@@ -7,7 +7,7 @@ export default async function useSignup(name, email, password, bio,avatar, setAu
     // console.log("process: "+process.env.BACKEND_BASE_URL);
     // const response=await axios.post(`${process.env.BACKEND_BASE_URL}/auth/signup`,{
     const response = await axios.post(
-      `${process.env.BACKEND_BASE_URL}/auth/signup`,
+      `${import.meta.env.VITE_BACKEND_BASE_URL}/auth/signup`,
       {
         name,
         username: email,

@@ -9,7 +9,9 @@ export default async function useAddFriend(
 ) {
   try {
     const response = await axios.post(
-      `${process.env.BACKEND_BASE_URL}/users/friends/${friendUsername}`,
+      `${
+        import.meta.env.VITE_BACKEND_BASE_URL
+      }/users/friends/${friendUsername}`,
       {},
       {
         headers: { "Content-Type": "application/json" },

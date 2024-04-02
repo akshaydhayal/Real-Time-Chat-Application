@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 export default async function useGetUser(username,setFriendSearched){
     try{
         const response = await axios.get(
-          `${process.env.BACKEND_BASE_URL}/users/${username}`,
+          `${import.meta.env.VITE_BACKEND_BASE_URL}/users/${username}`,
           {
             withCredentials: true,
           }

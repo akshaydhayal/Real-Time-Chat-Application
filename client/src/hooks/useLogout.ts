@@ -3,7 +3,7 @@ import axios from "axios";
 export default async function useLogout(){
     try{
         const response = await axios.post(
-          `${process.env.BACKEND_BASE_URL}/auth/logout`,
+          `${import.meta.env.VITE_BACKEND_BASE_URL}/auth/logout`,
           {},
           {
             headers: { "Content-Type": "application/json" },

@@ -4,7 +4,7 @@ export default async function useGetFriends(setFriends){
     try{
         console.log("use get frindfs hook called!!");
         const response = await axios.get(
-          `${process.env.BACKEND_BASE_URL}/users/friends`,
+          `${import.meta.env.VITE_BACKEND_BASE_URL}/users/friends`,
           {
             withCredentials: true,
           }

@@ -4,7 +4,7 @@ export default async function useSendMessage(msg,rec,socket){
     try{
         console.log(`msg rec: ${msg} reciever : ${rec}`);
         const response = await axios.post(
-          `${process.env.BACKEND_BASE_URL}/messages/send`,
+          `${import.meta.env.VITE_BACKEND_BASE_URL}/messages/send`,
           {
             message: msg,
             reciever: rec,

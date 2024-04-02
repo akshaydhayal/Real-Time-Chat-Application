@@ -4,7 +4,9 @@ import toast from "react-hot-toast";
 export default async function useSendFriendRequest(friendUsername){
     try{
         const response = await axios.post(
-          `${process.env.BACKEND_BASE_URL}/users/friends/add/${friendUsername}`,
+          `${
+            import.meta.env.VITE_BACKEND_BASE_URL
+          }/users/friends/add/${friendUsername}`,
           {},
           {
             headers: { "Content-Type": "application/json" },

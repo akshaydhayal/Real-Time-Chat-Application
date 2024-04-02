@@ -6,7 +6,7 @@ export default async function useLogin(username, password, setAuthUser) {
   try {
     console.log(username + " " + password);
     const response = await axios.post(
-      `${process.env.BACKEND_BASE_URL}/auth/login`,
+      `${import.meta.env.VITE_BACKEND_BASE_URL}/auth/login`,
       {
         username,
         password,
