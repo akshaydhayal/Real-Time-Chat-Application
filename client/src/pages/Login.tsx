@@ -60,6 +60,7 @@ export default function Login() {
               variant="contained"
               fullWidth
               onClick={() => {
+                console.log("process env backend base url : " +process.env.BACKEND_BASE_URL);
                 useLogin(email, password, setAuthUser);
               }}
             >
