@@ -13,7 +13,8 @@ export default function Home() {
   const setOnlineUsers = useSetRecoilState(onlineUsers);
   const [onlineUser,setOnlineUser]=useState([]);
 
-  const socket = useMemo(() => io("http://localhost:3001",{
+  // const socket = useMemo(() => io("http://localhost:3001",{
+  const socket = useMemo(() => io("https://chat-application-odsw.onrender.com",{
     query:{
       userId:authUser?._id
     }
