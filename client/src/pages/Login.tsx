@@ -60,10 +60,18 @@ export default function Login() {
               variant="contained"
               fullWidth
               onClick={() => {
-                console.log("process env backend base url : " +process.env.BACKEND_BASE_URL);
-                console.log("process env port : " +process.env.PORT);
-                console.log("process env VITE port : " +process.env.VITE_PORT);
-                console.log("process env react port : " +process.env.REACT_APP_PORT);
+                console.log(
+                  "process env backend base url : " +
+                    process.env.BACKEND_BASE_URL
+                );
+                console.log("process env port : " + process.env.PORT);
+                console.log("process env VITE port : " + process.env.VITE_PORT);
+                console.log(
+                  "process env react port : " + process.env.REACT_APP_PORT
+                );
+                console.log(import.meta.env.VITE_PORT); // "123"
+                console.log("vite port using meta cmd : "+import.meta.env.VITE_PORT); // "123"
+
                 useLogin(email, password, setAuthUser);
               }}
             >
