@@ -18,7 +18,8 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    origin: "https://render.com/docs/node-version",
     credentials: true,
   })
 );
