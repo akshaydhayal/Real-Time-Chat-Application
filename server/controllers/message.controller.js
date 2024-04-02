@@ -6,7 +6,8 @@ export const sendMessage=async(req,res)=>{
 
     console.log(`in send msg controller : msg :${message} rec: ${reciever}`)
     // let conversation=await Conversation.findOne({participants:{$all:[req.user?._id,reciever]}})
-    let conversation=await Conversation.findOne({participants:[req.user?._id,reciever]})
+    let conversation = await Conversation.findOne({participants: [req.user?._id, reciever],}) ||
+      await Conversation.findOne({ participants: [reciever, req.user?._id] });
 
     if(!conversation){
         const newConversation=new Conversation({
