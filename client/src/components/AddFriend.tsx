@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
-import useAddFriend from "../hooks/useAddFriend";
 import useGetUser from "../hooks/useGetuser";
-import { friendsData } from "../store/friendsData";
-import { useSetRecoilState,useRecoilState } from "recoil";
 import useSendFriendRequest from "../hooks/useSendFriendRequest";
 
 export default function AddFriend({ setAddFriendClicked }) {
-  const [friends, setFriends] = useRecoilState(friendsData);
   const [friendUsername, setFriendUsername] = useState("");
   const [friendSearched, setFriendSearched] = useState([]);
 
@@ -50,8 +46,6 @@ export default function AddFriend({ setAddFriendClicked }) {
                 name={f.name}
                 avatar={f.avatar}
                 username={f.username}
-                setFriends={setFriends}
-                friends={friends}
               />
             );
           })}
@@ -60,7 +54,7 @@ export default function AddFriend({ setAddFriendClicked }) {
   );
 }
 
-export function SingleFriend({ name, avatar,username,friends,setFriends }) {
+export function SingleFriend({ name, avatar,username }) {
   return (
     <div className="flex gap-3 w-full">
         <img src={avatar} className="w-1/5 h-8 rounded-full" />

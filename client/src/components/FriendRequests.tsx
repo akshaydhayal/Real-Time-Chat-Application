@@ -1,4 +1,3 @@
-import React from 'react'
 import { MdCancel } from "react-icons/md";
 import useRejectFriendRequest from '../hooks/useRejectFriendRequest';
 import useAddFriend from '../hooks/useAddFriend';

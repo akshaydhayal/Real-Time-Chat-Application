@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async function useSendMessage(msg,rec,conversations,setConversations,socket){
+export default async function useSendMessage(msg,rec,socket){
     try{
         console.log(`msg rec: ${msg} reciever : ${rec}`);
         const response=await axios.post(`http://localhost:3001/api/messages/send`,{

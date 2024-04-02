@@ -1,7 +1,5 @@
 import axios from "axios";
 import toast from "react-hot-toast";
-import { userData } from "../store/authUserData";
-import { useSetRecoilState } from "recoil";
 
 export default async function useSignup(name, email, password, bio,avatar, setAuthUser) {
   // const setUser=useSetRecoilState(userData);

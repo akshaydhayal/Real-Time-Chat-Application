@@ -1,7 +1,6 @@
-import { useState,lazy, useEffect } from "react";
+import { lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import {Toaster} from "react-hot-toast";
-import { RecoilRoot } from "recoil";
 import { useRecoilValue } from "recoil";
 import { userData } from "./store/authUserData";
 

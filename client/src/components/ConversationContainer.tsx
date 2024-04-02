@@ -1,11 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react";
+import  { useEffect, useState } from "react";
 import { LuSend } from "react-icons/lu";
 import { BiConversation } from "react-icons/bi";
 import useGetConversations from "../hooks/useGetConversations";
 import { IoNotifications } from "react-icons/io5";
 import { CiLogout } from "react-icons/ci";
 
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { friendToChat } from "../store/friendToChat";
 import { userData } from "../store/authUserData";
 import useSendMessage from "../hooks/useSendMessage";
@@ -46,6 +46,8 @@ export default function ConversationContainer({socket,conversations,setConversat
         <NavOptions
           setAddFriendClicked={setAddFriendClicked}
           addFriendClicked={addFriendClicked}
+          name=""
+          avatar=""
         />
         <div className=" h-max mt-32 flex flex-col items-center gap-2">
           <p className="text-xl font-semibold">Welcome {authUser.name}</p>
@@ -88,11 +90,10 @@ export default function ConversationContainer({socket,conversations,setConversat
             console.log(
               `before calling values message:${msgTyped} reciever: ${friendToTalk._id}`
             );
+
             useSendMessage(
               msgTyped,
               friendToTalk._id,
-              conversations,
-              setConversations,
               socket
             );
           }}

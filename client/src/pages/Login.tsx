@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Avatar,
   Button,
-  Container,
   Paper,
   TextField,
   Typography,
@@ -10,14 +9,11 @@ import {
 // import {CameraAltIcon} from "@mui/icons-material";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import useSignup from "../hooks/useSignup";
-import toast from "react-hot-toast";
 import useLogin from "../hooks/useLogin";
-import { useNavigate } from "react-router-dom";
 import { userData } from "../store/authUserData";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 
 export default function Login() {
-  const navigate = useNavigate();
 
   const [isLogin, setIsLogin] = useState(true);
   const [name, setName] = useState("");
@@ -26,7 +22,8 @@ export default function Login() {
   const [avatar, setAvatar] = useState("");
   const [bio, setBio] = useState("");
 
-  const [authUser, setAuthUser] = useRecoilState(userData);
+  // const [authUser, setAuthUser] = useRecoilState(userData);
+  const setAuthUser = useSetRecoilState(userData);
 
   return (
     <div className="flex justify-center h-screen items-center">

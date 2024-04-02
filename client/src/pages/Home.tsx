@@ -2,7 +2,7 @@ import { useMemo,useEffect,useState } from 'react';
 import ConversationContainer from '../components/ConversationContainer'
 import FriendsSidebarList from '../components/FriendsSidebarList'
 import { io } from 'socket.io-client';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData } from '../store/authUserData';
 import { onlineUsers } from '../store/onlineUsers';
 

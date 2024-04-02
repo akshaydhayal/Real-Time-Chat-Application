@@ -1,14 +1,10 @@
-import react, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
-import { CiLogout } from "react-icons/ci";
 
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { friendsData } from "../store/friendsData";
 import useGetFriends from "../hooks/useGetFriends";
 import { friendToChat } from "../store/friendToChat";
-import useLogout from "../hooks/useLogout";
-import AddFriend from "./AddFriend";
-import { onlineUsers } from "../store/onlineUsers";
 
 export default function FriendsSidebarList({onlineUser}) {
   const [friends, setFriends] = useRecoilState(friendsData);
@@ -33,7 +29,7 @@ export default function FriendsSidebarList({onlineUser}) {
 
       <div className=" h-[80vh] overflow-auto relative">
         {friends &&
-          friends.map((f, ind) => {
+          friends.map((f) => {
             const onlineStatus=onlineUser.includes(f._id);
             return <Friend user={f} onlineStatus={onlineStatus}/>;
           })}
