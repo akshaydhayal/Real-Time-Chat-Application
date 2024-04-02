@@ -4,12 +4,13 @@ import {Server} from "socket.io";
 
 export const app=express();
 export const server=http.createServer(app);
-export const io=new Server(server,{
-    cors:{
-        origin:"http://localhost:5173",
-        methods:['GET','POST'],
-        credentials:true
-    }
+export const io = new Server(server, {
+  cors: {
+    // origin:"http://localhost:5173",
+    origin: "https://render.com/docs/node-version",
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
 });
 
 let userMaptoSocketId={};
