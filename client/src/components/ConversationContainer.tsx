@@ -23,7 +23,7 @@ export default function ConversationContainer({
   console.log("auth user: " + JSON.stringify(authUser));
 
   const [msgTyped, setMsgTyped] = useState("");
-  const [fileToSend, setFileToSend] = useState();
+  const [fileToSend, setFileToSend] = useState(null);
 
   console.log("conversationss " + JSON.stringify(conversations));
 
@@ -53,7 +53,7 @@ export default function ConversationContainer({
           name=""
           avatar=""
           socket={socket}
-        />
+          />
         <div className=" h-max mt-32 flex flex-col items-center gap-2">
           <p className="text-xl font-semibold">Welcome {authUser.name}</p>
           <p className="text-lg font-medium">
@@ -73,6 +73,7 @@ export default function ConversationContainer({
         setAddFriendClicked={setAddFriendClicked}
         name={friendToTalk.name}
         avatar={friendToTalk.avatar}
+        socket={socket}
       />
 
       <div className="flex flex-col gap-4 h-[82vh] overflow-auto">

@@ -46,7 +46,6 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
                 avatar={f.avatar}
                 username={f.username}
                 setFriendRequests={setFriendRequests}
-                socket={socket}
               />
             );
           }):<p className="text-sm">You have no friend requests</p>
@@ -56,7 +55,7 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
   );
 }
 
-export function Request({ name, avatar, username, setFriendRequests,socket }) {
+export function Request({ name, avatar, username, setFriendRequests }) {
     const setFriends=useSetRecoilState(friendsData);
   return (
     <div className="flex gap-3 items-center">

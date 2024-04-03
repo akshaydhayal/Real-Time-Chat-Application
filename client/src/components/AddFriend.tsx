@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import useGetUser from "../hooks/useGetuser";
@@ -46,7 +46,6 @@ export default function AddFriend({ setAddFriendClicked,socket }) {
                 name={f.name}
                 avatar={f.avatar}
                 username={f.username}
-                friendId={f._id}
                 socket={socket}
               />
             );
@@ -58,7 +57,7 @@ export default function AddFriend({ setAddFriendClicked,socket }) {
 
 // export function SingleFriend({ name, avatar,username }) {
 
-export function SingleFriend({ name, avatar,username,friendId,socket }) {
+export function SingleFriend({ name, avatar,username,socket }) {
 
   return (
     <div className="flex gap-3 w-full">
