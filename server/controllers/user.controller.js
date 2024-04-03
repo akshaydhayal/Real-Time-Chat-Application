@@ -22,9 +22,9 @@ export const getFriends=async(req,res)=>{
     try{
         const user=await User.findById(req.user._id).populate("friends");
         console.log("user id : "+req.user._id);
-        console.log("all friends : "+user);
+        // console.log("all friends : "+user);
         if(user){
-            console.log("all friends : "+user);
+            // console.log("all friends : "+user);
             return res.status(201).json({friends:user.friends});
         }else{
             console.log("test3");

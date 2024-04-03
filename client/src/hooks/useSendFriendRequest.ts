@@ -1,7 +1,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
-export default async function useSendFriendRequest(friendUsername){
+export default async function useSendFriendRequest(friendUsername,socket){
     try{
         const response = await axios.post(
           `${
@@ -14,6 +14,9 @@ export default async function useSendFriendRequest(friendUsername){
           }
         );
         const data=response.data;
+        if(data.friend){
+          await socket.emit("friend-req",{sender:data.user,reciever:data.friend});
+        }
         console.log(data);
     }catch(error){
         console.log("error in use send friend request: "+error.message);

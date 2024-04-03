@@ -62,6 +62,7 @@ export default function Login() {
               onClick={() => {
                 console.log(import.meta.env.VITE_PORT); // "123"
                 console.log(import.meta.env.VITE_BACKEND_BASE_URL); // "123"
+                console.log(import.meta.env); // "123"
                 console.log(import.meta.env.REACT_APP_PORT); // "123"
                 useLogin(email, password, setAuthUser);
               }}

@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { friendsData } from "../store/friendsData";
 import useGetFriends from "../hooks/useGetFriends";
 import { friendToChat } from "../store/friendToChat";
+import { userData } from "../store/authUserData";
 
 export default function FriendsSidebarList({onlineUser}) {
   const [friends, setFriends] = useRecoilState(friendsData);
+  const authUser=useRecoilValue(userData);
   useEffect(() => {
     useGetFriends(setFriends);
   }, []);
@@ -19,6 +21,7 @@ export default function FriendsSidebarList({onlineUser}) {
     <div className="w-1/4 relative border-r-2">
       <div className="flex gap-4 items-center mb-12 border border-gray-600 bg-gray-400 h-[8vh] p-4">
         {/* <div className="flex gap-4 items-center mt-12 mb-12"> */}
+        <img className="w-10 h-10 rounded-full" src={authUser?.avatar} />
         <input
           className="p-1 px-4 rounded-3xl w-3/5 border border-sky-400"
           type="text"
@@ -30,8 +33,8 @@ export default function FriendsSidebarList({onlineUser}) {
       <div className=" h-[80vh] overflow-auto relative">
         {friends &&
           friends.map((f) => {
-            const onlineStatus=onlineUser.includes(f._id);
-            return <Friend user={f} onlineStatus={onlineStatus}/>;
+            const onlineStatus = onlineUser.includes(f._id);
+            return <Friend user={f} onlineStatus={onlineStatus} />;
           })}
       </div>
       {/* <CiLogout className="w-6 h-6 mt-2" onClick={() => useLogout()} /> */}

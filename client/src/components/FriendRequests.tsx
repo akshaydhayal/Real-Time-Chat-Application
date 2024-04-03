@@ -3,8 +3,16 @@ import useRejectFriendRequest from '../hooks/useRejectFriendRequest';
 import useAddFriend from '../hooks/useAddFriend';
 import { useSetRecoilState } from 'recoil';
 import { friendsData } from '../store/friendsData';
+import { useEffect } from "react";
 
-export default function FriendRequests({ friendRequests,setFriendRequests, setShowFriendRequests }) {
+export default function FriendRequests({ friendRequests,setFriendRequests, setShowFriendRequests,socket }) {
+  useEffect(() => {
+    socket.on("friend-req", (reqObj) => {
+      console.log(reqObj);
+      console.log(JSON.stringify(reqObj));
+      setFriendRequests((old) => [...old, reqObj.sender]);
+    });
+  }, []);
   return (
     <div className="w-screen h-screen fixed top-0 left-0">
       <div
@@ -18,7 +26,8 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
           <MdCancel />
         </div>
         <p className="text-lg font-semibold mb-4">Friend Requests</p>
-        {friendRequests &&
+
+        {/* {friendRequests &&
           friendRequests.map((f) => {
             return (
               <Request
@@ -28,23 +37,36 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
                 setFriendRequests={setFriendRequests}
               />
             );
-          })}
+          })} */}
+
+        {friendRequests.length>0? friendRequests.map((f) => {
+            return (
+              <Request
+                name={f.name}
+                avatar={f.avatar}
+                username={f.username}
+                setFriendRequests={setFriendRequests}
+                socket={socket}
+              />
+            );
+          }):<p className="text-sm">You have no friend requests</p>
+          }
       </div>
     </div>
   );
 }
 
-export function Request({ name, avatar, username, setFriendRequests }) {
+export function Request({ name, avatar, username, setFriendRequests,socket }) {
     const setFriends=useSetRecoilState(friendsData);
   return (
     <div className="flex gap-3 items-center">
       <img className="h-8 w-8 rounded-full" src={avatar} />
       <p className="">{name}</p>
-      <p className="font-medium" onClick={()=>{
+      <p className="font-medium cursor-pointer hover:underline" onClick={()=>{
         useAddFriend(username, setFriends,setFriendRequests);
       }}>Accept</p>
       <p
-        className="font-medium"
+        className="font-medium cursor-pointer hover:underline"
         onClick={() => {
           useRejectFriendRequest(username, setFriendRequests);
         }}

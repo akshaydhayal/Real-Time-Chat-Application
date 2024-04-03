@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import useGetUser from "../hooks/useGetuser";
 import useSendFriendRequest from "../hooks/useSendFriendRequest";
 
-export default function AddFriend({ setAddFriendClicked }) {
+export default function AddFriend({ setAddFriendClicked,socket }) {
   const [friendUsername, setFriendUsername] = useState("");
   const [friendSearched, setFriendSearched] = useState([]);
 
@@ -46,6 +46,8 @@ export default function AddFriend({ setAddFriendClicked }) {
                 name={f.name}
                 avatar={f.avatar}
                 username={f.username}
+                friendId={f._id}
+                socket={socket}
               />
             );
           })}
@@ -54,13 +56,16 @@ export default function AddFriend({ setAddFriendClicked }) {
   );
 }
 
-export function SingleFriend({ name, avatar,username }) {
+// export function SingleFriend({ name, avatar,username }) {
+
+export function SingleFriend({ name, avatar,username,friendId,socket }) {
+
   return (
     <div className="flex gap-3 w-full">
         <img src={avatar} className="w-1/5 h-8 rounded-full" />
         <p className="text-base w-3/5">{name}</p>
         <button className="rounded-full bg-sky-400 w-1/5" onClick={()=>{
-            useSendFriendRequest(username)
+            useSendFriendRequest(username,socket)
             // useAddFriend(username,friends,setFriends)
         }}>+</button>
     </div>

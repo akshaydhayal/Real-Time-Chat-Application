@@ -25,8 +25,21 @@ io.on("connection",(socket)=>{
     console.log("online users : "+JSON.stringify(userMaptoSocketId));
 
     socket.on("chat-msg",(msg)=>{
-        console.log("msg : "+JSON.stringify(msg));
-        io.emit("rec-msg",msg);
+      console.log("msg : "+JSON.stringify(msg));
+        //for emitting to all users
+        // io.emit("rec-msg",msg);
+
+        //for emiting to just the reciever
+        const recSocketId=userMaptoSocketId[msg.reciever];
+        const senderSocketId=userMaptoSocketId[msg.sender];
+        // io.to(recSocketId).emit("rec-msg",msg);
+        io.to([recSocketId,senderSocketId]).emit("rec-msg",msg);
+    })
+    socket.on("friend-req",(reqObj)=>{
+      console.log("friendReq: "+reqObj);
+      console.log("friendReq: "+JSON.stringify(reqObj));
+      const frientSocketId=userMaptoSocketId[reqObj.reciever._id];
+      io.to(frientSocketId).emit('friend-req',reqObj);
     })
     socket.on("disconnect",(socket)=>{
         console.log("user disconnected",socket.id);

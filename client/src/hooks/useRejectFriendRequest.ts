@@ -15,7 +15,13 @@ export default async function useRejectFriendRequest(friendUsername, setFriendRe
     );
     const data = response.data;
     console.log(data);
-    setFriendRequests(data.user.friend_requests_recieved);
+    // setFriendRequests(data.user.friend_requests_recieved);
+    if(data.friend){
+      setFriendRequests((old) => {
+        console.log("old friend req inside useAdd Friend" + JSON.stringify(old));
+        return old.filter((r) => r._id != data.friend._id);
+      });
+    }
   } catch (error) {
     console.log("error in use send friend request: " + error.message);
     toast.error(error.message);

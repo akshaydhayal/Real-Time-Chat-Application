@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 export default async function useAddFriend(
   friendUsername,
-//   friends,
+  //   friends,
   setFriends,
   setFriendRequests
 ) {
@@ -23,10 +23,16 @@ export default async function useAddFriend(
     console.log(data);
     if (data.friend) {
       console.log("useer friend req: " + data.user.friend_requests_recieved);
-      setFriendRequests(data.user.friend_requests_recieved);
-      setFriends((old)=>[...old, data.friend]);
+      // setFriendRequests(data.user.friend_requests_recieved);
+      setFriendRequests((old) => {
+        console.log(
+          "old friend req inside useAdd Friend" + JSON.stringify(old)
+        );
+        return old.filter((r)=>r._id!=data.friend._id)
+      });
+      setFriends((old) => [...old, data.friend]);
 
-    //   setFriends([...friends, data.friend]);
+      //   setFriends([...friends, data.friend]);
       // setFriends(data.friend);
       // setFriendSearched(data.friend);
       // setFriendSearched((old)=>[...old,data.friend]);
