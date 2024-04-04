@@ -95,7 +95,7 @@ export default function ConversationContainer({
             );
           })}
       </div>
-      <div className="fixed bottom-0 w-[73vw] p-2 px-6 h-[10vh] ">
+      <div className="fixed bottom-0 w-[79vw] p-2 px-6 h-[10vh] ">
         {/* <form
           className="flex relative h-full"
           onSubmit={(e) => {
@@ -123,7 +123,7 @@ export default function ConversationContainer({
 
         <form
           encType="multipart/form-data"
-          className="flex relative h-full"
+          className="flex relative h-full items-center gap-2"
           onSubmit={(e) => {
             e.preventDefault();
             console.log(
@@ -141,10 +141,16 @@ export default function ConversationContainer({
             // useSendMessage(msgTyped, friendToTalk._id, socket);
           }}
         >
-          <input
+
+          <label for="image" className="text-lg font-normal 
+          border border-slate-400 p-1 px-2 rounded-lg hover:border-slate-700">
+            Upload
+          </label>
+          <input className="hidden"
             type="file"
+            id="image"
             onChange={(e) => setFileToSend(e.target.files[0])}
-          />
+            />
 
           <input
             className="p-2 px-4 rounded-lg w-full"

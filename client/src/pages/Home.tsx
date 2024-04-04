@@ -5,6 +5,7 @@ import { io } from 'socket.io-client';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { userData } from '../store/authUserData';
 import { onlineUsers } from '../store/onlineUsers';
+import NotificationSound from "../assets/sounds/notification.mp3";
 
 export default function Home() {
   const authUser=useRecoilValue(userData);
@@ -23,12 +24,15 @@ export default function Home() {
     }
   } ), []);
 
+
   useEffect(() => {
     socket.on("connect", () => {
       console.log("user connected!!" + socket.id);
     });
     socket.on("rec-msg", (msg) => {
       console.log("rec-msg : " + JSON.stringify(msg));
+      const sound=new Audio(NotificationSound);
+      sound.play();
       setConversations((old) => {
         return old ? [...old, msg] : [msg];
       });
