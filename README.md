@@ -21,8 +21,8 @@ This project is a real-time chat application built using the MERN (MongoDB, Expr
 
 ## Website Demo
 <p style="display: flex; justify-content: space-between;">
-  <img src="https://github.com/akshaydhayal/Real-Time-Chat-Application/blob/main/chat.png"  width="440" />
-  <img src="https://github.com/akshaydhayal/Real-Time-Chat-Application/blob/main/chat2.png" width="440" />
+  <img src="https://github.com/akshaydhayal/Real-Time-Chat-Application/blob/main/chat.png"  width="420" />
+  <img src="https://github.com/akshaydhayal/Real-Time-Chat-Application/blob/main/chat2.png" width="400" />
 </p>
 
 
