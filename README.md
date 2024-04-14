@@ -20,10 +20,12 @@ This project is a real-time chat application built using the MERN (MongoDB, Expr
 - **Database**: MongoDB(for user data),   Cloudinary (for storing user files)
 
 ## Website Demo
-<p float="left">
-  <img src="https://github.com/akshaydhayal/Real-Time-Chat-Application/blob/main/chat.png" width="200" />
-  <img src="https://github.com/akshaydhayal/Real-Time-Chat-Application/blob/main/chat2.png" width="200" />
+<p style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/akshaydhayal/Real-Time-Chat-Application/blob/main/chat.png"  width="490" />
+  <img src="https://github.com/akshaydhayal/Real-Time-Chat-Application/blob/main/chat2.png" width="490" />
 </p>
+
+
 [![Website Demo](link_to_website_demo_image)](link_to_website_demo_video)
 
 ## Setup
