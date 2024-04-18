@@ -1,20 +1,8 @@
 # Real-Time Chat MERN Web Application
 
-## Table of Contents
+Live Project Link : [https://chat-application-odsw.onrender.com/](https://chat-application-odsw.onrender.com/)
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Live Deployment](#live-deployment)
-- [Website Demo](#website-demo)
-- [Setup](#setup)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-
-This project is a real-time chat application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It enables users to engage in real-time conversations, send friend requests, accept or reject friend requests, send files along with chat messages, and receive notification alerts for new messages.
+This project is a real-time chat application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. It enables users to engage in real-time conversations, send friend requests, acces.ept or reject friend requests, send files along with chat messages, and receive notification alerts for new messag
 
 ## Features
 
@@ -27,24 +15,16 @@ This project is a real-time chat application built using the MERN (MongoDB, Expr
 
 ## Technologies Used
 
-### Frontend Client
-- React.js
-- Tailwind CSS
-
-### Backend Server
-- Node.js
-- Express.js
-- Socket.IO
-
-### Database
-- MongoDB
-- Cloudinary (for storing user files)
-
-## Live Deployment
-
-[Link to Live Deployment](link_to_live_deployment)
+- **Frontend**: React, Tailwind CSS
+- **Backend**: Node.js, Express.js, socket.io
+- **Database**: MongoDB(for user data),   Cloudinary (for storing user files)
 
 ## Website Demo
+<p style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/akshaydhayal/Real-Time-Chat-Application/blob/main/chat.png"  width="420" />
+  <img src="https://github.com/akshaydhayal/Real-Time-Chat-Application/blob/main/chat2.png" width="400" />
+</p>
+
 
 [![Website Demo](link_to_website_demo_image)](link_to_website_demo_video)
 
@@ -55,15 +35,6 @@ This project is a real-time chat application built using the MERN (MongoDB, Expr
 3. **Environment Variables**: Set up environment variables for MongoDB connection URI, Cloudinary configuration, and other necessary variables.
 4. **Start the Development Server**: Run `npm start` in both the client and server directories.
 
-## Usage
-
-1. **Register/Login**: Users can register for a new account or login using their credentials.
-2. **Search Users**: Users can search for other users using the search functionality.
-3. **Send Friend Requests**: After finding another user, they can send friend requests.
-4. **Manage Friend Requests**: Users can accept or reject incoming friend requests.
-5. **Real-Time Chat**: Engage in real-time conversations with connected users.
-6. **File Sharing**: Send files along with chat messages by selecting files from your device.
-7. **Notification Alerts**: Receive notification alerts for new messages.
 
 ## Contributing
 
