@@ -142,7 +142,7 @@ export default function ConversationContainer({
           }}
         >
 
-          <label for="image" className="text-lg font-normal 
+          <label htmlFor="image" className="text-lg font-normal 
           border border-slate-400 p-1 px-2 rounded-lg hover:border-slate-700">
             Upload
           </label>
