@@ -1,5 +1,5 @@
-import { Button, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react'
+import { Button, TextField } from '@mui/material';
+import  { useState } from 'react'
 import useLogin from '../hooks/useLogin';
 
 export default function LoginUser({setAuthUser,setIsLogin}) {
@@ -8,7 +8,7 @@ export default function LoginUser({setAuthUser,setIsLogin}) {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="bg-[#121212] ">
+    <div className="bg-[#121212] border border-slate-700 p-8 rounded-lg">
       <p className="text-4xl text-slate-50 font-medium">Welcome back 👋</p>
       <p className="text-slate-500 text-lg">
         Please enter your information to signin

@@ -1,4 +1,4 @@
-import { Avatar, Button, TextField, Typography } from '@mui/material';
+import { Avatar, Button, TextField } from '@mui/material';
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import { useState } from 'react';
 import useSignup from '../hooks/useSignup';
@@ -10,7 +10,7 @@ export default function RegisterUser({setAuthUser,setIsLogin}) {
       const [avatar, setAvatar] = useState("");
       const [bio, setBio] = useState("");
   return (
-    <div className="bg-[#121212]">
+    <div className="bg-[#121212] border border-slate-700 p-6 rounded-lg">
       <p className="text-4xl text-slate-50 font-medium">Create your Account</p>
       {/* <p className="text-slate-500 text-lg">
         Please enter your information to signin
@@ -24,6 +24,7 @@ export default function RegisterUser({setAuthUser,setIsLogin}) {
       </div>
 
       <TextField
+
         className="bg-[#1e1e1e]"
         InputLabelProps={{
           style: { color: "#B0B0B0" },
