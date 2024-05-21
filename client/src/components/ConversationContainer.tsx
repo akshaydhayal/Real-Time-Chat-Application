@@ -249,7 +249,7 @@ export function NavOptions({
       </div>
 
       {showFriendRequests && (
-        <div className="w-screen h-screen absolute top-0 left-0">
+        <div className="w-screen h-screen fixed top-0 left-0">
         <FriendRequests
           friendRequests={friendRequests}
           setFriendRequests={setFriendRequests}
@@ -261,9 +261,7 @@ export function NavOptions({
       {addFriendClicked && (
         <div
           className="fixed w-screen h-screen left-0 top-0 right-0 bottom-0"
-          // onClick={() => {setAddFriendClicked(false)}}
         >
-          {/* <div className="w-1/3 h-1/3 absolute left-1/3 top-1/4 z-1 bg-black"> */}
           <div>
             <AddFriend
               setAddFriendClicked={setAddFriendClicked}

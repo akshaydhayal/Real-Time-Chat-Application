@@ -20,7 +20,7 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
     // }}
     >
       <div
-        className="w-1/3 h-1/4 flex flex-col items-center
+        className="w-1/3 h-auto flex flex-col items-center
          border-2 border-slate-300 bg-black p-4"
       >
         <div
@@ -57,7 +57,7 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
 export function Request({ name, avatar, username, setFriendRequests }) {
     const setFriends=useSetRecoilState(friendsData);
   return (
-    <div className="flex gap-12 items-center">
+    <div className="flex gap-12 items-center mb-2">
       <div className="flex gap-3 items-center">
         <img className="h-8 w-8 rounded-full" src={avatar} />
         <p className="text-slate-200">{name}</p>
