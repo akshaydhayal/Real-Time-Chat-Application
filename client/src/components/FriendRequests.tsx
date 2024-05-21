@@ -14,9 +14,11 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
     });
   }, []);
   return (
-    <div className="w-screen h-screen flex justify-center items-center backdrop-blur-lg" onClick={()=>{
-      setShowFriendRequests(false);
-    }}>
+    <div className="w-screen h-screen flex justify-center items-center backdrop-blur-lg" 
+    // onClick={()=>{
+    //   setShowFriendRequests(false);
+    // }}
+    >
       <div
         className="w-1/3 h-1/4 flex flex-col items-center
          border-2 border-slate-300 bg-black p-4"
@@ -33,18 +35,6 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
           Friend Requests
         </p>
 
-        {/* {friendRequests &&
-          friendRequests.map((f) => {
-            return (
-              <Request
-                name={f.name}
-                avatar={f.avatar}
-                username={f.username}
-                setFriendRequests={setFriendRequests}
-              />
-            );
-          })} */}
-
         {friendRequests.length > 0 ? (
           friendRequests.map((f) => {
             return (
@@ -57,7 +47,7 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
             );
           })
         ) : (
-          <p className="text-sm">You have no friend requests</p>
+          <p className="text-sm text-slate-400">You have no friend requests</p>
         )}
       </div>
     </div>
