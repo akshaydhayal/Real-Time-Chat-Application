@@ -53,13 +53,16 @@ export default function ConversationContainer({
           name=""
           avatar=""
           socket={socket}
-          />
-        <div className=" h-max mt-32 flex flex-col items-center gap-2">
-          <p className="text-xl font-semibold">Welcome {authUser.name}</p>
-          <p className="text-lg font-medium">
+        />
+        <div className=" h-[90vh] flex flex-col items-center justify-center gap-2 bg-[#000000]">
+          <p className="text-xl font-semibold text-slate-100">Welcome {authUser.name}</p>
+          <div className="flex gap-4 items-center">
+
+          <p className="text-lg font-medium text-slate-300">
             Select a chat to start messaging
           </p>
-          <BiConversation className="w-24 h-16" />
+          <BiConversation className="w-12 rounded-full p-2 h-12 bg-slate-200" />
+          </div>
         </div>
       </div>
     );
@@ -76,7 +79,7 @@ export default function ConversationContainer({
         socket={socket}
       />
 
-      <div className="flex flex-col gap-4 h-[82vh] overflow-auto">
+      <div className="flex flex-col gap-4 h-[80vh] overflow-auto bg-[#000000]">
         {conversations &&
           conversations.map((c) => {
             return c.sender === authUser?._id ? (
@@ -95,32 +98,7 @@ export default function ConversationContainer({
             );
           })}
       </div>
-      <div className="fixed bottom-0 w-[79vw] p-2 px-6 h-[10vh] ">
-        {/* <form
-          className="flex relative h-full"
-          onSubmit={(e) => {
-            e.preventDefault();
-            console.log(
-              `before calling values message:${msgTyped} reciever: ${friendToTalk._id}`
-            );
-
-            useSendMessage(msgTyped, friendToTalk._id, socket);
-          }}
-        >
-          <input
-            className="p-2 px-4 rounded-lg w-full"
-            type="text"
-            placeholder="Type a message"
-            value={msgTyped}
-            onChange={(e) => {
-              setMsgTyped(e.target.value);
-            }}
-          />
-          <button type="submit">
-            <LuSend className="absolute right-7 bottom-3" />
-          </button>
-        </form> */}
-
+      <div className="fixed bottom-0 w-[79vw] p-2 px-6 h-[10vh] bg-[#121212]">
         <form
           encType="multipart/form-data"
           className="flex relative h-full items-center gap-2"
@@ -141,19 +119,22 @@ export default function ConversationContainer({
             // useSendMessage(msgTyped, friendToTalk._id, socket);
           }}
         >
-
-          <label htmlFor="image" className="text-lg font-normal 
-          border border-slate-400 p-1 px-2 rounded-lg hover:border-slate-700">
+          <label
+            htmlFor="image"
+            className="text-lg font-normal bg-[#383838] text-slate-100
+          border border-slate-400 p-1 px-2 rounded-lg hover:border-slate-700"
+          >
             Upload
           </label>
-          <input className="hidden"
+          <input
+            className="hidden"
             type="file"
             id="image"
             onChange={(e) => setFileToSend(e.target.files[0])}
-            />
+          />
 
           <input
-            className="p-2 px-4 rounded-lg w-full"
+            className="p-2 px-4 rounded-lg w-full bg-[#383838] text-slate-100 placeholder:text-slate-200"
             type="text"
             placeholder="Type a message"
             value={msgTyped}
@@ -162,7 +143,7 @@ export default function ConversationContainer({
             }}
           />
           <button type="submit">
-            <LuSend className="absolute right-7 bottom-3" />
+            <LuSend className="absolute right-7 bottom-3 text-slate-100" />
           </button>
         </form>
       </div>
@@ -179,15 +160,15 @@ export function RightConversation({ msg, fileData, createdAt }) {
   const msgTime = `${msgHours}:${msgMinutes} ${msgDayNightStatus}`;
 
   return (
-    <div className="flex justify-end">
-      <div className="w-max max-w-2xl flex items-center gap-2">
-        <div className="border-2 rounded-l-xl w-auto rounded-b-xl p-1 px-3 flex flex-col gap-4">
+    <div className="flex justify-end ">
+      <div className="w-max max-w-2xl flex items-center gap-2 ">
+        <div className="border rounded-l-xl w-auto rounded-b-xl p-1 px-3 flex flex-col gap-4 bg-[#343434]">
           {fileData.url != "" && (
             <img src={fileData.url} className="w-60 h-48" />
           )}
           <div className="flex gap-4">
-            <p className="text-base ">{msg}</p>
-            <p className="text-xs font-extralight  pt-3 text-slate-600">
+            <p className="text-base text-slate-200">{msg}</p>
+            <p className="text-xs font-extralight  pt-3 text-slate-400">
               {msgTime}
             </p>
           </div>
@@ -208,21 +189,20 @@ export function LeftConversation({ msg, fileData, friendAvatar, createdAt }) {
   const msgTime = `${msgHours}:${msgMinutes} ${msgDayNightStatus}`;
   return (
     <div className="flex justify-start">
-      <div className="w-max max-w-2xl flex items-center px-1 gap-2">
+      <div className="w-max max-w-2xl flex items-center px-1 gap-2 bg-[#343434] ">
         <img className="h-8 rounded-full " src={friendAvatar} />
 
-        <div className="border-2 rounded-r-xl w-auto rounded-b-xl p-1 px-3 flex flex-col gap-4">
+        <div className="border rounded-r-xl w-auto rounded-b-xl p-1 px-3 flex flex-col gap-4">
           {fileData.url != "" && (
             <img src={fileData.url} className="w-60 h-48" />
           )}
           <div className="flex gap-4">
-            <p className="text-base ">{msg}</p>
-            <p className="text-xs font-extralight  pt-3 text-slate-600">
+            <p className="text-base text-slate-200">{msg}</p>
+            <p className="text-xs font-extralight  pt-3 text-slate-400">
               {msgTime}
             </p>
           </div>
         </div>
-        
       </div>
     </div>
   );
@@ -244,23 +224,23 @@ export function NavOptions({
   const [showFriendRequests, setShowFriendRequests] = useState(false);
 
   return (
-    <div className="border border-gray-600 bg-gray-400 h-[8vh] p-2 px-4 flex gap-4 items-center">
+    <div className="border border-gray-600 bg-[#343434] h-[10vh] p-2 px-4 flex gap-4 items-center ">
       {avatar && <img className="w-10 h-10 rounded-full" src={avatar} />}
-      {name && <p className=" ">{name}</p>}
+      {name && <p className="text-slate-100">{name}</p>}
 
-      <div className="flex justify-end w-full border border-gray-600 bg-gray-400 h-[8vh] p-2 px-4 gap-4 ">
+      <div className="flex justify-end w-full border border-gray-600 bg-[#343434] h-[8vh] p-2 px-4 gap-4 ">
         <button
-          className="w-8 h-8 rounded-full bg-sky-400 font-semibold text-2xl"
+          className="w-7 h-7 rounded-full bg-slate-200 font-semibold text-2xl"
           onClick={() => setAddFriendClicked(true)}
         >
           +
         </button>
         <IoNotifications
-          className="w-8 h-8 rounded-full bg-sky-400 font"
+          className="w-7 h-7 p-1 rounded-full bg-slate-200 font"
           onClick={() => setShowFriendRequests(true)}
         />
         <button
-          className="w-8 h-8 rounded-full bg-sky-300 flex justify-center items-center"
+          className="w-7 h-7 p-1 rounded-full bg-slate-200 flex justify-center items-center"
           // onClick={() => useLogout()}
           onClick={() => useLogout(setAuthUser)}
         >
@@ -269,19 +249,22 @@ export function NavOptions({
       </div>
 
       {showFriendRequests && (
+        <div className="w-screen h-screen absolute top-0 left-0">
         <FriendRequests
           friendRequests={friendRequests}
           setFriendRequests={setFriendRequests}
           setShowFriendRequests={setShowFriendRequests}
           socket={socket}
         />
+        </div>
       )}
       {addFriendClicked && (
         <div
-          className="fixed w-screen h-screen left-0 top-0 right-0 bottom-0 border-2 border-red-700"
+          className="fixed w-screen h-screen left-0 top-0 right-0 bottom-0"
           // onClick={() => {setAddFriendClicked(false)}}
         >
-          <div className="w-1/3 h-1/3 absolute left-1/3 top-1/4 z-1 bg-black">
+          {/* <div className="w-1/3 h-1/3 absolute left-1/3 top-1/4 z-1 bg-black"> */}
+          <div>
             <AddFriend
               setAddFriendClicked={setAddFriendClicked}
               socket={socket}

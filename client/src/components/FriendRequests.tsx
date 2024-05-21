@@ -14,18 +14,24 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
     });
   }, []);
   return (
-    <div className="w-screen h-screen fixed top-0 left-0">
+    <div className="w-screen h-screen flex justify-center items-center backdrop-blur-lg" onClick={()=>{
+      setShowFriendRequests(false);
+    }}>
       <div
-        className="w-1/3 h-1/4 fixed left-1/3 top-1/4 flex flex-col items-center
+        className="w-1/3 h-1/4 flex flex-col items-center
          border-2 border-slate-300 bg-black p-4"
       >
         <div
-          className="w-full flex justify-end "
-          onClick={() => {setShowFriendRequests(false)}}
+          className="w-full flex justify-end text-slate-50"
+          onClick={() => {
+            setShowFriendRequests(false);
+          }}
         >
           <MdCancel />
         </div>
-        <p className="text-lg font-semibold mb-4">Friend Requests</p>
+        <p className="text-lg font-semibold mb-4 text-slate-100">
+          Friend Requests
+        </p>
 
         {/* {friendRequests &&
           friendRequests.map((f) => {
@@ -39,7 +45,8 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
             );
           })} */}
 
-        {friendRequests.length>0? friendRequests.map((f) => {
+        {friendRequests.length > 0 ? (
+          friendRequests.map((f) => {
             return (
               <Request
                 name={f.name}
@@ -48,8 +55,10 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
                 setFriendRequests={setFriendRequests}
               />
             );
-          }):<p className="text-sm">You have no friend requests</p>
-          }
+          })
+        ) : (
+          <p className="text-sm">You have no friend requests</p>
+        )}
       </div>
     </div>
   );
@@ -58,20 +67,25 @@ export default function FriendRequests({ friendRequests,setFriendRequests, setSh
 export function Request({ name, avatar, username, setFriendRequests }) {
     const setFriends=useSetRecoilState(friendsData);
   return (
-    <div className="flex gap-3 items-center">
-      <img className="h-8 w-8 rounded-full" src={avatar} />
-      <p className="">{name}</p>
-      <p className="font-medium cursor-pointer hover:underline" onClick={()=>{
-        useAddFriend(username, setFriends,setFriendRequests);
-      }}>Accept</p>
-      <p
-        className="font-medium cursor-pointer hover:underline"
-        onClick={() => {
-          useRejectFriendRequest(username, setFriendRequests);
-        }}
-      >
-        Reject
-      </p>
+    <div className="flex gap-12 items-center">
+      <div className="flex gap-3 items-center">
+        <img className="h-8 w-8 rounded-full" src={avatar} />
+        <p className="text-slate-200">{name}</p>
+      </div>
+
+      <div className="flex gap-5">
+        <p className="font-medium cursor-pointer hover:underline text-slate-400" onClick={()=>{
+          useAddFriend(username, setFriends,setFriendRequests);
+        }}>Accept</p>
+        <p
+          className="font-medium cursor-pointer hover:underline text-slate-400"
+          onClick={() => {
+            useRejectFriendRequest(username, setFriendRequests);
+          }}
+          >
+          Reject
+        </p>
+        </div>
     </div>
   );
 }
