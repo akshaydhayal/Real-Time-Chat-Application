@@ -34,7 +34,8 @@ app.use(cookieParser());
 //server
 app.use(
   cors({
-    origin: "https://chat-application-odsw.onrender.com/",
+    // origin: "https://chat-application-odsw.onrender.com/",
+    origin: "https://chatakshay.netlify.app/",
     credentials: true,
   })
 );
