@@ -8,7 +8,7 @@ export const io = new Server(server, {
   cors: {
     // origin:"http://localhost:5173",
     // origin: "https://chat-application-odsw.onrender.com/",
-    origin: "https://chatakshay.netlify.app/",
+    origin: "https://chatakshay.netlify.app",
     methods: ["GET", "POST"],
     credentials: true,
   },
