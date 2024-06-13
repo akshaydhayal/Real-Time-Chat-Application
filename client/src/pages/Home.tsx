@@ -18,8 +18,8 @@ export default function Home() {
   // const socket = useMemo(() => io("http://localhost:3001",{
 
   //for server socket connection
-  // const socket = useMemo(() => io("https://chat-application-odsw.onrender.com",{
-  const socket = useMemo(() => io("https://chatakshay.netlify.app/login",{
+  // const socket = useMemo(() => io("https://chatakshay.netlify.app/login",{
+  const socket = useMemo(() => io("https://chat-application-odsw.onrender.com",{
     query:{
       userId:authUser?._id
     }
